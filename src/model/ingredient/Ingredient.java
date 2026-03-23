@@ -1,21 +1,17 @@
 package model.ingredient;
 
+import model.Element;
+
 import java.util.Objects;
 
-public abstract class Ingredient {
-    private String name;
-    private int netWeight;
+public abstract class Ingredient implements Element {
+    protected final String name;
+    protected final int netWeight;
+    protected Status status;
 
-    public Ingredient(String name, int netWeight) {
-        this.name = name;
+    public Ingredient(int netWeight, Status status, String name) {
         this.netWeight = netWeight;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+        this.status = status;
         this.name = name;
     }
 
@@ -23,20 +19,29 @@ public abstract class Ingredient {
         return netWeight;
     }
 
-    public void setNetWeight(int netWeight) {
-        this.netWeight = netWeight;
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Ingredient that = (Ingredient) o;
-        return netWeight == that.netWeight && Objects.equals(name, that.name);
+        return netWeight == that.netWeight && Objects.equals(name, that.name) && status == that.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, netWeight);
+        return Objects.hash(name, netWeight, status);
     }
 
     @Override

@@ -1,7 +1,10 @@
 package model;
 
-import repository.DrinkRepository;
+import exception.NotFoundException;
+
+import java.util.Map;
 
 public interface Element {
-
+    String getName();
+    void execute(Map<String, Element> elements) throws NotFoundException;
 }

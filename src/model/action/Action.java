@@ -1,37 +1,23 @@
 package model.action;
 
-import java.util.List;
+import exception.NotFoundException;
+import model.Element;
+
+import java.util.Map;
 import java.util.Objects;
 
-public abstract class Action {
-    private String name;
-    private List<String> permittedIngredients;
+public abstract class Action implements Element {
+    protected final String name;
 
-    public void perform(){}
+    public void execute(Map<String, Element> elements) throws NotFoundException {
+    }
 
-    public Action(String name, List<String> permittedIngredients) {
+    public Action(String name) {
         this.name = name;
-        this.permittedIngredients = permittedIngredients;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<String> getPermittedIngredients() {
-        return permittedIngredients;
-    }
-
-    public void setPermittedIngredients(List<String> permittedIngredients) {
-        this.permittedIngredients = permittedIngredients;
     }
 
     @Override
-    public String toString() {
+    public String getName() {
         return name;
     }
 
@@ -39,11 +25,16 @@ public abstract class Action {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Action action = (Action) o;
-        return Objects.equals(name, action.name) && Objects.equals(permittedIngredients, action.permittedIngredients);
+        return Objects.equals(name, action.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, permittedIngredients);
+        return Objects.hashCode(name);
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

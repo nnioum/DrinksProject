@@ -1,9 +1,23 @@
 package model.action;
 
-import java.util.List;
+import model.Element;
+import model.ingredient.Ingredient;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 public class Stir extends Action{
-    public Stir(String name) {
-        super(name);
+    public Stir() {
+        super("перемешать");
+    }
+
+    @Override
+    public void execute(Map<String, Element> elements) {
+
+    }
+
+    @Override
+    public String toString() {
+        return "перемешать";
     }
 }
