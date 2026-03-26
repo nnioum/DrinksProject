@@ -4,6 +4,7 @@ import exception.NotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static controller.DrinkController.stop;
 import static data.GlobalData.IS_RUNNING;
 import static data.GlobalData.WELCOME_MESSAGE;
 
@@ -20,10 +21,10 @@ public class Main {
                     continue;
                 }
                 DrinkController drinkController = new DrinkController();
-                if(blocks[0].equals("result")){
-                    drinkController.result();
-                }else {
-                    drinkController.create(line);
+                switch (blocks[0]) {
+                    case "result" -> drinkController.result();
+                    case "ready" -> stop(drinkController.result());
+                    default -> drinkController.create(line);
                 }
             } catch (NotFoundException e) {
                 System.out.println("Ошибка: " + e.getMessage());

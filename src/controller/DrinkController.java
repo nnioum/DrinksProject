@@ -30,17 +30,18 @@ public class DrinkController {
         }
     }
 
-    public void result() {
+    public String result() {
         String result = drinkService.result();
         List<String> allElements = drinkService.getAllElements();
         for (String s : allElements) {
-            System.out.println("\n" + s);
+            System.out.println(s + "\n");
         }
-        System.out.println("\n\nприготовлен " + result);
-        stop();
+        System.out.println("приготовлен " + result);
+        return result;
     }
 
-    public static void stop() {
+    public static void stop(String name) {
         IS_RUNNING = false;
+        System.out.println("Ваш напиток \"" + name + "\" готов");
     }
 }
