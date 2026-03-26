@@ -70,7 +70,7 @@ public class DrinkRepository {
                 .filter(recipe -> recipe.isMatch(ingredientSummary))
                 .map(TypeDrink::name)
                 .findFirst()
-                .orElse("австорский напиток");
+                .orElse("SIGNATURE DRINK");
     }
 
     public List<String> getAllElements(){
