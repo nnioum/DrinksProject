@@ -2,6 +2,7 @@ package model.action;
 
 import exception.NotFoundException;
 import model.Element;
+import model.ingredient.Ingredient;
 
 import java.util.Map;
 import java.util.Objects;
@@ -9,7 +10,7 @@ import java.util.Objects;
 public abstract class Action implements Element {
     protected final String name;
 
-    public void execute(Map<String, Element> elements) throws NotFoundException {
+    public void execute(Map<String, Ingredient> elements) throws NotFoundException {
     }
 
     public Action(String name) {

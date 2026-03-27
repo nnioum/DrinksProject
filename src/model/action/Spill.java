@@ -14,9 +14,9 @@ public class Spill extends Action {
     }
 
     @Override
-    public void execute(Map<String, Element> elements) throws NotFoundException {
-        Ingredient coffeeBeans = (Ingredient) elements.get("кофейные зерна");
-        Ingredient water = (Ingredient) elements.get("вода");
+    public void execute(Map<String, Ingredient> elements) throws NotFoundException {
+        Ingredient coffeeBeans = elements.get("кофейные зерна");
+        Ingredient water = elements.get("вода");
         if (coffeeBeans != null && water != null &&
                 water.getStatus().equals(Status.BOILED) && coffeeBeans.getStatus().equals(Status.GROUND)) {
             coffeeBeans.setStatus(Status.WASTE);

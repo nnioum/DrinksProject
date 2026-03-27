@@ -14,11 +14,12 @@ public class Milk extends Ingredient {
 
 
     @Override
-    public void execute(Map<String, Element> elements) throws NotFoundException {
+    public String toString() {
+        return "молоко";
     }
 
     @Override
-    public String toString() {
-        return "молоко";
+    public void execute(Map<String, Ingredient> elements) throws NotFoundException {
+
     }
 }

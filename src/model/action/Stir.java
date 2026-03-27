@@ -12,7 +12,7 @@ public class Stir extends Action{
     }
 
     @Override
-    public void execute(Map<String, Element> elements) {
+    public void execute(Map<String, Ingredient> elements) {
 
     }
 

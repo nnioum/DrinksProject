@@ -23,7 +23,7 @@ public class DrinkController {
                 throw new NotFoundException("Не найдены все аргументы");
             }
         } else if (firstCommand.equals("get")) {
-            System.out.println(drinkService.getAllElements());
+            drinkService.getAllElements();
         } else {
             Element element = drinkService.create(commands.getFirst(), null);
             System.out.println("Выполнено действие " + "\"" + element + "\"");
@@ -32,10 +32,7 @@ public class DrinkController {
 
     public String result() {
         String result = drinkService.result();
-        List<String> allElements = drinkService.getAllElements();
-        for (String s : allElements) {
-            System.out.println(s + "\n");
-        }
+        drinkService.getAllElements();
         System.out.println("приготовлен " + result);
         return result;
     }

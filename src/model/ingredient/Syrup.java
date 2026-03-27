@@ -13,7 +13,7 @@ public class Syrup extends Ingredient{
     }
 
     @Override
-    public void execute(Map<String, Element> elements) throws NotFoundException {
+    public void execute(Map<String, Ingredient> elements) throws NotFoundException {
 
     }
 

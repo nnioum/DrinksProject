@@ -14,8 +14,8 @@ public class Grind extends Action{
     }
 
     @Override
-    public void execute(Map<String, Element> elements) throws NotFoundException {
-        Ingredient coffeeBeans = (Ingredient) elements.get("кофейные зерна");
+    public void execute(Map<String, Ingredient> elements) throws NotFoundException {
+        Ingredient coffeeBeans = elements.get("кофейные зерна");
         if(coffeeBeans!=null && coffeeBeans.getStatus().equals(Status.RAW)){
             coffeeBeans.setStatus(Status.GROUND);
         }else {

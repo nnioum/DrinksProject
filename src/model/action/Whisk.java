@@ -14,8 +14,8 @@ public class Whisk extends Action{
     }
 
     @Override
-    public void execute(Map<String, Element> elements) throws NotFoundException {
-        Ingredient milk = (Ingredient) elements.get("молоко");
+    public void execute(Map<String, Ingredient> elements) throws NotFoundException {
+        Ingredient milk = elements.get("молоко");
         if(milk!=null && milk.getStatus().equals(Status.STORAGE)){
             milk.setStatus(Status.FOAMED);
         }else {

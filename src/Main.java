@@ -28,6 +28,7 @@ public class Main {
                 }
             } catch (NotFoundException e) {
                 System.out.println("Ошибка: " + e.getMessage());
+
             }
         }
     }

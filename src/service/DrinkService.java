@@ -18,7 +18,7 @@ public class DrinkService {
                 int weigh = Integer.parseInt(weighString);
                 return drinkRepository.create(name, weigh);
             } catch (NumberFormatException e) {
-                throw new RuntimeException("Цена должна быть введена верно");
+                throw new NotFoundException("Цена должна быть введена верно");
             }
         }
     }
@@ -27,7 +27,7 @@ public class DrinkService {
         return drinkRepository.setNameDrink();
     }
 
-    public List<String> getAllElements(){
-        return drinkRepository.getAllElements();
+    public void getAllElements(){
+        drinkRepository.printTree();
     }
 }

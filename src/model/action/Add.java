@@ -14,10 +14,9 @@ public class Add extends Action {
 
 
     @Override
-    public void execute(Map<String, Element> elements) throws NotFoundException {
-        Ingredient ice = (Ingredient) elements.get("лед");
-        Ingredient syrup = (Ingredient) elements.get("сироп");
-        Ingredient milk = (Ingredient) elements.get("молоко");
+    public void execute(Map<String, Ingredient> elements) throws NotFoundException {
+        Ingredient ice = elements.get("лед");
+        Ingredient syrup = elements.get("сироп");
         if ((ice != null && ice.getStatus().equals(Status.STORAGE))
                 || (syrup != null && syrup.getStatus().equals(Status.STORAGE))) {
 

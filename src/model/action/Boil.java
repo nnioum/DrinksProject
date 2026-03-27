@@ -14,8 +14,8 @@ public class Boil extends Action{
     }
 
     @Override
-    public void execute(Map<String, Element> elements) throws NotFoundException {
-        Ingredient water = (Ingredient) elements.get("вода");
+    public void execute(Map<String, Ingredient> elements) throws NotFoundException {
+        Ingredient water = elements.get("вода");
         if (water != null && water.getStatus().equals(Status.STORAGE)) {
             water.setStatus(Status.BOILED);
         }else {
